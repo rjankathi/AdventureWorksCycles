@@ -1,0 +1,62 @@
+
+1.Create A class library project AWC.Models
+
+2. Run Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 1.1.1 to the project
+
+3. Run Install-Package Microsoft.EntityFrameworkCore.Tools -Version 1.1.1
+
+4. Run Install-Package Microsoft.EntityFrameworkCore.Design -Version 1.1.1
+
+5. Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design -Version 1.1.1
+
+6. Create AWC.WebApi Web Application - Web Api App
+
+7.In Pakcage Manager Console Awc.Models project selected run below command
+
+"Scaffold-DbContext "Server=RAJ-WIN10;Database=AdventureWorks2014;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir DBModels"
+
+In the DBModels all the database entities will be scaffoled 
+
+Note 1: AWC.WebApi should be the starte up project while running the above command
+
+Note 2: you moght face this error
+
+"Could not load file or assembly 'Microsoft.EntityFrameworkCore.Design, Culture=neutral, PublicKeyToken=null'. The system cannot find the file specified."
+
+Ref:"https://github.com/aspnet/EntityFrameworkCore/issues/7977" 
+
+8. In Startup.cs of AWC.WebApi Project add this code to Inject DBContext as Service into the application
+
+ services.AddDbContext<Models.DBModels.AdventureWorks2014Context>(options => {
+                options.UseSqlServer(Configuration.GetConnectionString("AWCD_Connection"));
+            });
+
+9.
+Scaffold-DbContext "Data Source=.;Initial Catalog=DBEfCore;Integrated Security=SSPI;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+Data Source=RAJ-WIN10;Initial Catalog=AdventureWorks2014;Integrated Security=True
+
+
+dotnet ef --startup-project ../AWC.WebApi/ dbcontext scaffold "Server=RAJ-WIN10;
+initial catalog=AdventureWorks2014;integrated security=True;" 
+Microsoft.EntityFrameworkCore.SqlServer -o DBModels
+
+
+<ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet">
+      <Version>1.0.0-*</Version>
+    </DotNetCliToolReference>
+  </ItemGroup>
+10.Related to Angular material 
+Ref Links:
+
+1.https://stackoverflow.com/questions/43133736/unable-to-get-route-working-with-2-levels-of-lazy-loaded-modules-nested
+2.https://stackoverflow.com/questions/40816415/angular2-submodules-forchild-routes-overwrite-root-routes
+3.https://stackoverflow.com/questions/41020569/angular2-routing-import-submodule-with-routing-making-it-prefixed/45718262#45718262
+4.https://plnkr.co/edit/XilkY55WXle2hFF0Pelx?p=preview
+Angular material md to mat changes in beta
+1.https://changelogs.md/github/angular/material2/
+2.https://www.npmjs.com/package/angular-material-prefix-updater
+3.https://github.com/angular/angular/issues/15851
+
+4. https://stackoverflow.com/questions/46439473/import-materialmodule-into-feature-module (commnet on this when you get back to AWC)
