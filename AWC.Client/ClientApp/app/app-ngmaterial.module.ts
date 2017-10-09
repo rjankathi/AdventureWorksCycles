@@ -1,0 +1,122 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+    MdAutocompleteModule,
+    MdButtonModule,
+    MdButtonToggleModule,
+    MdCardModule,
+    MdCheckboxModule,
+    MdChipsModule,
+    MdCoreModule,
+    MdDatepickerModule,
+    MdDialogModule,
+    MdExpansionModule,
+    MdGridListModule,
+    MdIconModule,
+    MdInputModule,
+    MdListModule,
+    MdMenuModule,
+    MdNativeDateModule,
+    MdPaginatorModule,
+    MdProgressBarModule,
+    MdProgressSpinnerModule,
+    MdRadioModule,
+    MdRippleModule,
+    MdSelectModule,
+    MdSidenavModule,
+    MdSliderModule,
+    MdSlideToggleModule,
+    MdSnackBarModule,
+    MdSortModule,
+    MdTableModule,
+    MdTabsModule,
+    MdToolbarModule,
+    MdTooltipModule,
+    MATERIAL_COMPATIBILITY_MODE,
+    MdIconRegistry,
+} from '@angular/material';
+import { CdkTableModule } from '@angular/cdk';
+import 'hammerjs';
+
+@NgModule({
+    imports: [
+        CommonModule,
+        CdkTableModule,
+        MdButtonModule,
+        MdButtonToggleModule,
+        MdCardModule,
+        MdCheckboxModule,
+        MdChipsModule,
+        MdCoreModule,
+        MdDatepickerModule,
+        MdDialogModule,
+        MdExpansionModule,
+        MdGridListModule,
+        MdIconModule,
+        MdInputModule,
+        MdListModule,
+        MdMenuModule,
+        MdNativeDateModule,
+        MdPaginatorModule,
+        MdProgressBarModule,
+        MdProgressSpinnerModule,
+        MdRadioModule,
+        MdRippleModule,
+        MdSelectModule,
+        MdSidenavModule,
+        MdSliderModule,
+        MdSlideToggleModule,
+        MdSnackBarModule,
+        MdSortModule,
+        MdTableModule,
+        MdTabsModule,
+        MdToolbarModule,
+        MdTooltipModule
+    ],
+    exports: [
+        CommonModule,
+        CdkTableModule,
+        MdButtonModule,
+        MdButtonToggleModule,
+        MdCardModule,
+        MdCheckboxModule,
+        MdChipsModule,
+        MdCoreModule,
+        MdDatepickerModule,
+        MdDialogModule,
+        MdExpansionModule,
+        MdGridListModule,
+        MdIconModule,
+        MdInputModule,
+        MdListModule,
+        MdMenuModule,
+        MdNativeDateModule,
+        MdPaginatorModule,
+        MdProgressBarModule,
+        MdProgressSpinnerModule,
+        MdRadioModule,
+        MdRippleModule,
+        MdSelectModule,
+        MdSidenavModule,
+        MdSliderModule,
+        MdSlideToggleModule,
+        MdSnackBarModule,
+        MdSortModule,
+        MdTableModule,
+        MdTabsModule,
+        MdToolbarModule,
+        MdTooltipModule
+    ]
+    
+})
+export class AppNgMaterialModule {
+    static forRoot() {
+        return {
+            ngModule: AppNgMaterialModule,
+            providers: [
+                MdIconRegistry,
+                { provide: MATERIAL_COMPATIBILITY_MODE, useValue: true },
+            ]
+        };
+    }
+}

@@ -1,0 +1,47 @@
+<!--<md-sidenav-container fullscreen>
+    <md-sidenav #start mode="side" opened="true" class="mat-elevation-z10">
+        <md-nav-list>
+            <a md-list-item [routerLink]="['/home']" routerLinkActive="active">
+                <span class='glyphicon glyphicon-home'></span> Home
+            </a>
+            <a md-list-item [routerLink]="['/counter']" routerLinkActive="active">
+                <span class='glyphicon glyphicon-education'></span> Counter
+            </a>
+            <a md-list-item [routerLink]="['/fetch-data']" routerLinkActive="active">
+                <span class='glyphicon glyphicon-th-list'></span> Fetch data
+            </a>
+        </md-nav-list>
+        <hr />
+        <button md-button (click)="start.close()">Close</button>
+    </md-sidenav>
+    <md-toolbar color="primary" class="mat-elevation-z10">
+        <button md-icon-button (click)="start.open()">
+            <md-icon>menu</md-icon>
+        </button>
+        {{ title }}
+    </md-toolbar>
+</md-sidenav-container>-->
+
+
+<md-sidenav #sidenav mode="side" opened class="app-sidenav">
+    <md-nav-list>
+        <a md-list-item [routerLink]="['/dashboard']" routerLinkActive="active">
+            <span class='glyphicon glyphicon-dashboard'> Dashboard</span>
+        </a>
+        <a md-list-item [routerLink]="['/accessories']" routerLinkActive="active">
+            <span class='glyphicon glyphicon-headphones'> Accessories</span>
+        </a>
+        <a md-list-item [routerLink]="['/bikes']" routerLinkActive="active">
+            <span class='glyphicon glyphicon-education'> Bikes </span>
+        </a>
+        <a md-list-item [routerLink]="['/clothing']" routerLinkActive="active">
+            <span class='glyphicon glyphicon-tags'> Clothing</span>
+        </a>
+        <a md-list-item [routerLink]="['/components']" routerLinkActive="active">
+            <span class='glyphicon glyphicon-barcode'> Components</span>
+        </a>
+    </md-nav-list>
+</md-sidenav>
+
+
+

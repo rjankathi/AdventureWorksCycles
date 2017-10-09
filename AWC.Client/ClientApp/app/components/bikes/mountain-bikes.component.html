@@ -1,0 +1,73 @@
+<md-horizontal-stepper [linear]="isLinear">
+    <md-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+            <ng-template mdStepLabel>Fill out your name</ng-template>
+            <md-form-field>
+                <input mdInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+            </md-form-field>
+            <div>
+                <button md-button mdStepperNext>Next</button>
+            </div>
+        </form>
+    </md-step>
+    <md-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+            <ng-template mdStepLabel>Fill out your address</ng-template>
+            <md-form-field>
+                <input mdInput placeholder="Address" formControlName="secondCtrl" required>
+            </md-form-field>
+            <div>
+                <button md-button mdStepperPrevious>Back</button>
+                <button md-button mdStepperNext>Next</button>
+            </div>
+        </form>
+    </md-step>
+    <md-step>
+        <ng-template mdStepLabel>Done</ng-template>
+        You are now done.
+        <div>
+            <button md-button mdStepperPrevious>Back</button>
+        </div>
+    </md-step>
+</md-horizontal-stepper>
+
+<!--<md-grid-list cols="3" rowHeight="2:1">
+    <md-grid-tile
+                  [colspan]="3"
+                  [rowspan]="12"
+                  [style.background]="grey">
+        <md-card class="bike-card">
+            <img md-card-image [src]="'data:image/png;base64,'+bikeDetails.image">
+
+            <md-card-content>
+                {{bikeDetails.name}}<br />
+                {{bikeDetails.color}}<br />
+                {{bikeDetails.size}}<br />
+                {{bikeDetails.sizeUnitMeasureCode}}<br />
+                {{bikeDetails.weight}}"<br />
+                {{bikeDetails.weightUnitMeasureCode}}<br />
+                {{bikeDetails.listPrice}}
+            </md-card-content>
+            <md-card-actions>
+                <button md-raised-button color="accent">BUY</button>
+            </md-card-actions>
+        </md-card>
+    </md-grid-tile>
+</md-grid-list>-->
+
+<!--<md-card class="bike-card">
+    <img md-card-image [src]="'data:image/png;base64,'+bikeDetails.image">
+
+    <md-card-content>
+        {{bikeDetails.name}}<br />
+        {{bikeDetails.color}}<br />
+        {{bikeDetails.size}}<br />
+        {{bikeDetails.sizeUnitMeasureCode}}<br />
+        {{bikeDetails.weight}}"<br />
+        {{bikeDetails.weightUnitMeasureCode}}<br />
+        {{bikeDetails.listPrice}}
+    </md-card-content>
+    <md-card-actions>
+        <button md-raised-button color="accent">BUY</button>
+    </md-card-actions>
+</md-card>-->

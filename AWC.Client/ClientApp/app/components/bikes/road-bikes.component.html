@@ -1,0 +1,15 @@
+<md-card class="bike-card">
+    <img md-card-image [src]="'data:image/png;base64,'+bikeDetails.image">
+    <md-card-content>
+        {{bikeDetails.name}}<br />
+        {{bikeDetails.color}}<br />
+        {{bikeDetails.size}}<br />
+        {{bikeDetails.sizeUnitMeasureCode}}<br />
+        {{bikeDetails.weight}}"<br />
+        {{bikeDetails.weightUnitMeasureCode}}<br />
+        {{bikeDetails.listPrice}}
+    </md-card-content>
+    <md-card-actions>
+        <button md-raised-button color="accent">BUY</button>
+    </md-card-actions>
+</md-card>

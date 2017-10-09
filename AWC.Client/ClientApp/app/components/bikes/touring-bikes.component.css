@@ -1,0 +1,64 @@
+.bike-card {
+    width: 200px;
+}
+
+.bike-header-image {
+    /*background-image: url('../../../assets/img/examples/shiba1.jpg');*/
+    background-size: cover;
+}
+
+.demo-tab-group {
+    border: 1px solid #e8e8e8;
+}
+
+.demo-tab-content {
+    padding: 16px;
+}
+.demo-tab-group {
+    border: none;
+}
+.mat-tab-body.mat-tab-body-active {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 1;
+    flex-grow: 1;
+    /*background-color: #353131;*/
+    background-color: black;
+}
+
+.tabsCard {
+    background-color: rgba(0, 0, 0, 0.27) !important;
+    box-shadow: 0 0 11px 5px black !important;
+}
+.mat-ink-bar {
+    background-color: #3ab786 !important;
+}
+
+
+.mat-tab-nav-bar, .mat-tab-header {
+    border-bottom: 1px solid #e8e8e8 !important;
+    /*border-bottom: 2px solid #f5f5f5 !important;*/
+}
+
+
+
+.mat-tab-label {
+    color: #e8e8e8 !important;
+}
+
+:host /deep/ .mat-tab-label {
+    line-height: 28px !important;
+    height: 28px !important;
+}
+
+:host /deep/ .mat-tab-header {
+    background-color: #0288D1;
+    color: white;
+    border-radius: 5px 5px 0px 0px;
+}
+
+:host /deep/ .mat-ink-bar {
+    background-color: #d14b02 !important;
+    min-width: 120px;
+}

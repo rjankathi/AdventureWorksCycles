@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<app asp-prerender-module="ClientApp/dist/main-server">Loading...</app>*@
+<style>
+    .apploading {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0px;
+        margin: auto;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+<app>
+    <div class="text-center apploading">
+        @*<i class="fa fa-spinner fa-spin fa-3x fa-fw" style="color:#30BAE8;"></i>*@
+        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" style="color:#30BAE8;" aria-hidden="true"></i>
+        <div><h4 style="color:#ffffff;font-family:roboto sans-serif">Loading...</h4></div>
+    </div>
+</app>
+
+
+<script src="~/dist/vendor.js" asp-append-version="true"></script>
+@section scripts {
+    <script src="~/dist/main-client.js" asp-append-version="true"></script>
+}

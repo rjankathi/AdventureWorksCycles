@@ -1,0 +1,67 @@
+<md-tab-group md-stretch-tabs class="demo-tab-group">
+    <md-tab class="tabLabel" label="Mountain Bikes">
+        <div class="demo-tab-content">
+            <md-grid-list cols="4">
+                <md-grid-tile *ngFor="let bike of filterBikesOfType(1)">
+                    <md-card class="bike-card">
+                        <!--<img md-card-image class="bike-header-image" src="http://lorempixel.com/200/140/transport/10/">-->
+                        <img md-card-image style="width:200px; height:140px;background-size: cover;" [src]="GetBikeImage(bike.productId)">
+                        <md-card-content>
+                            <a [routerLink]="['./mountain',bike.productId]">{{bike.name}}</a> 
+                        </md-card-content>
+                        <!--<md-card-actions>
+                            <button md-raised-button color="accent">BUY</button>
+                        </md-card-actions>-->
+                    </md-card>
+
+                </md-grid-tile>
+            </md-grid-list>
+        </div>
+    </md-tab>
+    <md-tab class="tabLabel" label="Road Bikes">
+        <div class="demo-tab-content">
+            <md-grid-list cols="4">
+                <md-grid-tile *ngFor="let bike of filterBikesOfType(2)">
+                    <md-card class="bike-card">
+                        <!-- <img md-card-image class="bike-header-image" src="http://lorempixel.com/200/140/transport/10/">-->
+                        <img md-card-image style="width:200px; height:140px;background-size: cover;" [src]="GetBikeImage(bike.productId)">
+                        <md-card-content>
+                            <!--{{bike.name}}<br />{{bike.color}}-->
+                            <a [routerLink]="['./road',12]">{{bike.name}}</a>
+
+                        </md-card-content>
+                        <!--<md-card-actions>
+                            <button md-raised-button color="accent">BUY</button>
+                        </md-card-actions>-->
+                    </md-card>
+
+                </md-grid-tile>
+            </md-grid-list>
+        </div>
+    </md-tab>
+    <md-tab label="Touring Bikes">
+        <div class="demo-tab-content">
+            <md-grid-list cols="4">
+                <md-grid-tile *ngFor="let bike of filterBikesOfType(3)">
+                    <md-card class="bike-card">
+                        <img md-card-image style="width:200px; height:140px;background-size: cover;" [src]="GetBikeImage(bike.productId)">
+                        <md-card-content>
+                            <!--{{bike.name}}<br />{{bike.color}}-->
+                            <a [routerLink]="['./touring',bike.productId]">{{bike.name}}</a>
+                        </md-card-content>
+                    </md-card>
+
+                </md-grid-tile>
+            </md-grid-list>
+        </div>
+    </md-tab>
+</md-tab-group>
+<!--<md-card>
+    <router-outlet></router-outlet>
+</md-card>-->
+<!--<md-tab-group>
+    <md-tab label="Tab 1">Content 1</md-tab>
+    <md-tab label="Tab 2">Content 2</md-tab>
+</md-tab-group>-->
+
+<!--</md-card>-->

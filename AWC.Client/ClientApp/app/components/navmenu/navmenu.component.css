@@ -1,0 +1,9 @@
+
+md-sidenav {
+    z-index: 10;
+    width: 200px;
+}
+md-toolbar {
+    z-index: 10;
+}
+
