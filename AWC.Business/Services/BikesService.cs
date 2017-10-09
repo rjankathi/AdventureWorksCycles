@@ -1,7 +1,9 @@
 ﻿using AWC.Models.DBModels;
+using AWC.Models.ViewModels;
 using AWC.Repository.Repositories;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -51,6 +53,32 @@ namespace AWC.Business.Services
                 return list;
         }
 
+        public BikeDetailsVM GetBikesDetails(int productId)
+        {
+            BikeDetailsVM bike = new BikeDetailsVM();
+            using (IBikesRepository br = new BikesRepository(_context))
+            {
+                Product productDetail = br.GetBikesDetails(productId);
+                bike.ProductId = productDetail.ProductId;
+                bike.ProductId = productDetail.ProductId;
+                bike.ProductModelId = productDetail.ProductModelId;
+                bike.ProductSubCategoryId = productDetail.ProductSubcategoryId;
+                bike.Color = productDetail.Color;
+                bike.Name = productDetail.Name;
+                var photoId = productDetail.ProductProductPhoto.Select(s => s.ProductPhotoId).FirstOrDefault();
+                bike.Image = br.GetImage(photoId);
+                //bike.Image = productPhotos.Where(w => w.ProductPhotoId == photoId).Select(s => s.LargePhoto).FirstOrDefault();
+                //bikeirst(f => f.ProductPhotoId == photoId).ThumbNailPhoto;
+                bike.Size = productDetail.Size;
+                bike.SizeUnitMeasureCode = productDetail.SizeUnitMeasureCode;
+                bike.Weight = productDetail.Weight;
+                bike.WeightUnitMeasureCode = productDetail.WeightUnitMeasureCode;
+                bike.ListPrice = productDetail.ListPrice;
 
+            }
+                return bike;
+        }
+
+       
     }
 }

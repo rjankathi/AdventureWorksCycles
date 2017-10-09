@@ -9,5 +9,7 @@ namespace AWC.Repository.Repositories
     {
         IEnumerable<T> GetLookup<T>() where T : class;
         IEnumerable<Product> GetAllBikes();
+        byte[] GetImage(int id);
+        Product GetBikesDetails(int productId);
     }
 }

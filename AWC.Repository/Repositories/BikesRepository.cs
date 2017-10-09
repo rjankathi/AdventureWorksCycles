@@ -31,10 +31,23 @@ namespace AWC.Repository.Repositories
             //return products.Where(w => w.ProductSubcategoryId == productCategory.ProductCategoryId);
         }
 
+        public Product GetBikesDetails(int productID)
+        {
+            Product bike = _context.Product.Include(i => i.ProductProductPhoto).AsNoTracking().FirstOrDefault(bikedetail=> bikedetail.ProductId == productID);
+            return bike;
+        }
+
         public IEnumerable<T> GetLookup<T>() where T : class
         {
             IEnumerable<T> lookup = _context.Set<T>().AsNoTracking();
             return lookup;
+        }
+
+        public Byte[] GetImage(int id)
+        {
+            byte[] image = _context.ProductPhoto.Find(id).LargePhoto;
+            //AsNoTracking().Where(w=>w.ProductPhotoId == id).Select(s => s.LargePhoto); // FirstOrDefault(pic => pic.ProductPhotoId == id);
+            return image;
         }
     }
 }

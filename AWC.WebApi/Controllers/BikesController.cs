@@ -18,6 +18,7 @@ namespace AWC.WebApi.Controllers
         }
 
         #region GET METHODS
+        //api/bikes/all
         [HttpGet("all")]
         public IActionResult GetAllBikes()
         {
@@ -31,6 +32,22 @@ namespace AWC.WebApi.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
+
+        //api/bikes/{productId}/details
+        [HttpGet("{productId}/details")]
+        public IActionResult GetBike(int productId)
+        {
+            try
+            {
+                var bikeDetails = _bs.GetBikesDetails(productId);
+                return Json(bikeDetails);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
         #endregion
 
     }
