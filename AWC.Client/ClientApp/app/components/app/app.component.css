@@ -12,7 +12,7 @@ body {
     height: -webkit-fill-available;
     overflow-y: auto;
 }
-    .app-content md-card {
+    .app-content mat-card {
         margin: 20px;
     }
 .app-sidenav {
@@ -66,7 +66,7 @@ body {
 }
 
     /*
-.app-content md-checkbox {
+.app-content mat-checkbox {
     margin: 10px;
 }
 
@@ -126,7 +126,7 @@ body {
     position: relative;
     z-index: 2;
 }
-md-sidenav.md-sidenav-opened, md-sidenav.md-sidenav-opening {
+mat-sidenav.mat-sidenav-opened, mat-sidenav.mat-sidenav-opening {
     box-shadow: 0 0 0 0 !important;
 }
 .mat-sidenav {

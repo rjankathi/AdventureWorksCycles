@@ -1,67 +1,67 @@
-<md-tab-group md-stretch-tabs class="demo-tab-group">
-    <md-tab class="tabLabel" label="Mountain Bikes">
+<mat-tab-group mat-stretch-tabs class="demo-tab-group">
+    <mat-tab class="tabLabel" label="Mountain Bikes">
         <div class="demo-tab-content">
-            <md-grid-list cols="4">
-                <md-grid-tile *ngFor="let bike of filterBikesOfType(1)">
-                    <md-card class="bike-card">
-                        <!--<img md-card-image class="bike-header-image" src="http://lorempixel.com/200/140/transport/10/">-->
-                        <img md-card-image style="width:200px; height:140px;background-size: cover;" [src]="GetBikeImage(bike.productId)">
-                        <md-card-content>
+            <mat-grid-list cols="4">
+                <mat-grid-tile *ngFor="let bike of filterBikesOfType(1)">
+                    <mat-card class="bike-card">
+                        <!--<img mat-card-image class="bike-header-image" src="http://lorempixel.com/200/140/transport/10/">-->
+                        <img mat-card-image style="width:200px; height:140px;background-size: cover;" [src]="GetBikeImage(bike.productId)">
+                        <mat-card-content>
                             <a [routerLink]="['./mountain',bike.productId]">{{bike.name}}</a> 
-                        </md-card-content>
-                        <!--<md-card-actions>
-                            <button md-raised-button color="accent">BUY</button>
-                        </md-card-actions>-->
-                    </md-card>
+                        </mat-card-content>
+                        <!--<mat-card-actions>
+                            <button mat-raised-button color="accent">BUY</button>
+                        </mat-card-actions>-->
+                    </mat-card>
 
-                </md-grid-tile>
-            </md-grid-list>
+                </mat-grid-tile>
+            </mat-grid-list>
         </div>
-    </md-tab>
-    <md-tab class="tabLabel" label="Road Bikes">
+    </mat-tab>
+    <mat-tab class="tabLabel" label="Road Bikes">
         <div class="demo-tab-content">
-            <md-grid-list cols="4">
-                <md-grid-tile *ngFor="let bike of filterBikesOfType(2)">
-                    <md-card class="bike-card">
-                        <!-- <img md-card-image class="bike-header-image" src="http://lorempixel.com/200/140/transport/10/">-->
-                        <img md-card-image style="width:200px; height:140px;background-size: cover;" [src]="GetBikeImage(bike.productId)">
-                        <md-card-content>
+            <mat-grid-list cols="4">
+                <mat-grid-tile *ngFor="let bike of filterBikesOfType(2)">
+                    <mat-card class="bike-card">
+                        <!-- <img mat-card-image class="bike-header-image" src="http://lorempixel.com/200/140/transport/10/">-->
+                        <img mat-card-image style="width:200px; height:140px;background-size: cover;" [src]="GetBikeImage(bike.productId)">
+                        <mat-card-content>
                             <!--{{bike.name}}<br />{{bike.color}}-->
                             <a [routerLink]="['./road',12]">{{bike.name}}</a>
 
-                        </md-card-content>
-                        <!--<md-card-actions>
-                            <button md-raised-button color="accent">BUY</button>
-                        </md-card-actions>-->
-                    </md-card>
+                        </mat-card-content>
+                        <!--<mat-card-actions>
+                            <button mat-raised-button color="accent">BUY</button>
+                        </mat-card-actions>-->
+                    </mat-card>
 
-                </md-grid-tile>
-            </md-grid-list>
+                </mat-grid-tile>
+            </mat-grid-list>
         </div>
-    </md-tab>
-    <md-tab label="Touring Bikes">
+    </mat-tab>
+    <mat-tab label="Touring Bikes">
         <div class="demo-tab-content">
-            <md-grid-list cols="4">
-                <md-grid-tile *ngFor="let bike of filterBikesOfType(3)">
-                    <md-card class="bike-card">
-                        <img md-card-image style="width:200px; height:140px;background-size: cover;" [src]="GetBikeImage(bike.productId)">
-                        <md-card-content>
+            <mat-grid-list cols="4">
+                <mat-grid-tile *ngFor="let bike of filterBikesOfType(3)">
+                    <mat-card class="bike-card">
+                        <img mat-card-image style="width:200px; height:140px;background-size: cover;" [src]="GetBikeImage(bike.productId)">
+                        <mat-card-content>
                             <!--{{bike.name}}<br />{{bike.color}}-->
                             <a [routerLink]="['./touring',bike.productId]">{{bike.name}}</a>
-                        </md-card-content>
-                    </md-card>
+                        </mat-card-content>
+                    </mat-card>
 
-                </md-grid-tile>
-            </md-grid-list>
+                </mat-grid-tile>
+            </mat-grid-list>
         </div>
-    </md-tab>
-</md-tab-group>
-<!--<md-card>
+    </mat-tab>
+</mat-tab-group>
+<!--<mat-card>
     <router-outlet></router-outlet>
-</md-card>-->
-<!--<md-tab-group>
-    <md-tab label="Tab 1">Content 1</md-tab>
-    <md-tab label="Tab 2">Content 2</md-tab>
-</md-tab-group>-->
+</mat-card>-->
+<!--<mat-tab-group>
+    <mat-tab label="Tab 1">Content 1</mat-tab>
+    <mat-tab label="Tab 2">Content 2</mat-tab>
+</mat-tab-group>-->
 
-<!--</md-card>-->
+<!--</mat-card>-->

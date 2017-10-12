@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { MdIconModule } from '@angular/material';
-import { MdIconRegistry } from '@angular/material';
+import { MatIconModule } from '@angular/material';
+import { MatIconRegistry } from '@angular/material';
 @Component({
     selector: 'accessories',
     templateUrl: './accessories.component.html'

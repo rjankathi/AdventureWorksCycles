@@ -1,9 +1,9 @@
 
-md-sidenav {
+mat-sidenav {
     z-index: 10;
     width: 200px;
 }
-md-toolbar {
+mat-toolbar {
     z-index: 10;
 }
 

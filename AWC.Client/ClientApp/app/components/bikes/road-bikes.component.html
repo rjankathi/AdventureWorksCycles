@@ -1,6 +1,6 @@
-<md-card class="bike-card">
-    <img md-card-image [src]="'data:image/png;base64,'+bikeDetails.image">
-    <md-card-content>
+<mat-card class="bike-card">
+    <img mat-card-image [src]="'data:image/png;base64,'+bikeDetails.image">
+    <mat-card-content>
         {{bikeDetails.name}}<br />
         {{bikeDetails.color}}<br />
         {{bikeDetails.size}}<br />
@@ -8,8 +8,8 @@
         {{bikeDetails.weight}}"<br />
         {{bikeDetails.weightUnitMeasureCode}}<br />
         {{bikeDetails.listPrice}}
-    </md-card-content>
-    <md-card-actions>
-        <button md-raised-button color="accent">BUY</button>
-    </md-card-actions>
-</md-card>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="accent">BUY</button>
+    </mat-card-actions>
+</mat-card>

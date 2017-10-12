@@ -1,45 +1,264 @@
-<md-horizontal-stepper [linear]="isLinear">
-    <md-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
-            <ng-template mdStepLabel>Fill out your name</ng-template>
-            <md-form-field>
-                <input mdInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-            </md-form-field>
-            <div>
-                <button md-button mdStepperNext>Next</button>
-            </div>
+<!--<mat-card>-->
+
+<mat-horizontal-stepper #bikeStepper [linear]="!isNonLinear" style="background-color:#2f2f2f">
+    <h3>Finish the steps to buy the item</h3>
+    <mat-step [stepControl]="bikeFormGroup">
+        <form [formGroup]="bikeFormGroup">
+            <ng-template matStepLabel>Bike Details</ng-template>
+            <mat-card class="bike-card"  style="width:100%">
+                <table class="table mountainbike">
+                    <tbody>
+                        <tr class="row">
+                            <td class="col-xs-6" style="text-align:center">
+                                <img mat-card-image style="width:350px;" [src]="'data:image/png;base64,'+bikeImage">
+                            </td>
+                            <td class="col-xs-6">
+                                <mat-card-content>
+                                    <mat-form-field>
+                                        <input matInput placeholder="Name" formControlName="bikeNameCtrl">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input matInput placeholder="Color" formControlName="bikeColorCtrl">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input matInput placeholder="Size" formControlName="bikeSizeCtrl">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input matInput placeholder="Size Unit" formControlName="bikeSizeUnitMeasureCodeCtrl">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input matInput placeholder="Weight" formControlName="bikeWeightCtrl">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input matInput placeholder="Weight Unit" formControlName="bikeWeightUnitMeasureCodeCtrl">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input matInput placeholder="Price" formControlName="bikeListPriceCtrl">
+                                    </mat-form-field>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                    <!--<button mat-raised-button>Continue Shopping</button>-->
+                                    <!-- <button mat-raised-button color="accent" (click)="addToCart($e,bikeStepper)">Add to Cart</button>-->
+                                    <button mat-raised-button color="accent" matStepperNext>Add to Cart</button>
+                                </mat-card-actions>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-card>
         </form>
-    </md-step>
-    <md-step [stepControl]="secondFormGroup">
+    </mat-step>
+
+    <!--<mat-step [stepControl]="cartFormGroup" >
+        <form [formGroup]="cartFormGroup">-->
+    <mat-step label="Cart Details">
+        <!--<form>-->
+            <!--<ng-template matStepLabel>Cart Details</ng-template>-->
+            <mat-card>
+                <!--<table class="table mountainbike">
+                    <thead>
+                        <tr class="row">
+                            <th class="col-xs-3">Item</th>
+                            <th class="col-xs-3">Price</th>
+                            <th class="col-xs-3">Quantity</th>
+                            <th class="col-xs-3">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row">
+                            <td>
+                                <img mat-card-image style="width:50px;" [src]="'data:image/png;base64,'+bikeImage"><br />
+                                <span>{{bikeDetails.name}}</span>
+                            </td>
+                            <td>{{bikeDetails.listPrice}}</td>
+                            <td>
+                                <mat-form-field>
+                                    <mat-select placeholder="Qty">
+                                        <mat-option value="1">1</mat-option>
+                                        <mat-option value="2">2</mat-option>
+                                        <mat-option value="3">3</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </td>
+                            <td>
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>-->
+                <div class="example-container mat-elevation-z8">
+                    <mat-table #table style="height: 250px;">
+
+                        <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+                        <!-- Item Column -->
+                        <ng-container matColumnDef="item">
+                            <mat-header-cell *matHeaderCellDef> Item </mat-header-cell>
+                            <mat-cell *matCellDef>
+                                <img mat-card-image style="width:50px;" [src]="'data:image/png;base64,'+bikeImage"><br />
+                                <span>{{bikeDetails.name}}</span>
+                            </mat-cell>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="price">
+                            <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+                            <mat-cell *matCellDef>adaadfdsfa{{bikeDetails.listPrice}}</mat-cell>
+                        </ng-container>
+
+                        <!-- Quantity Column -->
+                        <ng-container matColumnDef="quantity">
+                            <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+                            <mat-cell *matCellDef>
+                                <mat-form-field>
+                                    <mat-select placeholder="Qty">
+                                        <mat-option value="1">1</mat-option>
+                                        <mat-option value="2">2</mat-option>
+                                        <mat-option value="3">3</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </mat-cell>
+                        </ng-container>
+
+                        <!-- Color Column -->
+                        <ng-container matColumnDef="remove">
+                            <mat-header-cell *matHeaderCellDef> Remove </mat-header-cell>
+                            <mat-cell *matCellDef><i class="glyphicon glyphicon-trash"></i></mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table>
+                </div>
+                <!--<mat-form-field>
+                    <input hidden matInput placeholder="Email address" formControlName="emailCtrl">
+                    <mat-error>The input is invalid</mat-error>
+                </mat-form-field>-->
+
+                <!--<div>{{addToCartStepValue | json}}</div>-->
+                <br />
+                <div>
+                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                    <button mat-raised-button color="accent" matStepperNext>Next</button>
+                </div>
+            </mat-card>
+        <!--</form>-->
+    </mat-step>
+
+    <mat-step [stepControl]="shippingFormGroup">
+        <form [formGroup]="shippingFormGroup">
+            <ng-template matStepLabel>Shipping Address</ng-template>
+            <mat-card>
+                <mat-form-field>
+                    <input matInput placeholder="Email address" formControlName="emailCtrl">
+                    <mat-error>The input is invalid</mat-error>
+                </mat-form-field>
+                <div>
+                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                    <button mat-raised-button color="accent" matStepperNext>Next</button>
+                </div>
+            </mat-card>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="paymentFormGroup">
+        <form [formGroup]="paymentFormGroup">
+            <ng-template matStepLabel>Order Summary / Payment</ng-template>
+            <mat-card>
+                <mat-form-field>
+                    <input matInput placeholder="Email address" formControlName="emailCtrl">
+                    <mat-error>The input is invalid</mat-error>
+                </mat-form-field>
+                <div>
+                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                    <button mat-raised-button color="accent" matStepperNext>Next</button>
+                </div>
+            </mat-card>
+        </form>
+    </mat-step>
+
+    <mat-step completed>
+        <form>
+            <ng-template matStepLabel>Order Confirmation</ng-template>
+            <mat-card>
+                <h1>Thank you.<br />Your Order has been placed.</h1>
+                <div>
+                    <button mat-raised-button color="accent">Done</button>
+                </div>
+            </mat-card>
+        </form>
+    </mat-step>
+</mat-horizontal-stepper>
+
+
+<!--<mat-horizontal-stepper [linear]="isLinear" style="background-color:#2f2f2f">
+    <mat-step [stepControl]="bikeDetailsFormGroup">
+        <form [formGroup]="bikeDetailsFormGroup">
+            <ng-template matStepLabel>Bike Details</ng-template>
+            <mat-card class="bike-card" style="width:350px;">
+                <img mat-card-image [src]="'data:image/png;base64,'+bikeDetails.image">
+
+                <mat-card-content>
+                    <mat-form-field>
+                        <input matInput disabled formControlName="bikeNameCtrl" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput disabled formControlName="bikeColorCtrl" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput disabled formControlName="bikeSizeCtrl" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput disabled formControlName="bikeSizeUnitMeasureCodeCtrl" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput disabled formControlName="bikeWeightCtrl" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput disabled formControlName="bikeWeightUnitMeasureCodeCtrl" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput disabled formControlName="bikeListPriceCtrl" required>
+                    </mat-form-field>
+                </mat-card-content>
+                <mat-card-actions class="button-row">
+                    <button mat-raised-button>Continue Shopping</button>
+                    <button mat-raised-button color="accent" matStepperNext>Add to Cart</button>
+                </mat-card-actions>
+            </mat-card>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
-            <ng-template mdStepLabel>Fill out your address</ng-template>
-            <md-form-field>
-                <input mdInput placeholder="Address" formControlName="secondCtrl" required>
-            </md-form-field>
+            <ng-template matStepLabel>Fill out your address</ng-template>
+            <mat-form-field>
+                <input matInput placeholder="Address" formControlName="secondCtrl" required>
+            </mat-form-field>
             <div>
-                <button md-button mdStepperPrevious>Back</button>
-                <button md-button mdStepperNext>Next</button>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
             </div>
         </form>
-    </md-step>
-    <md-step>
-        <ng-template mdStepLabel>Done</ng-template>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
         You are now done.
         <div>
-            <button md-button mdStepperPrevious>Back</button>
+            <button mat-button matStepperPrevious>Back</button>
         </div>
-    </md-step>
-</md-horizontal-stepper>
-
-<!--<md-grid-list cols="3" rowHeight="2:1">
-    <md-grid-tile
+    </mat-step>
+</mat-horizontal-stepper>-->
+<!--</mat-card>-->
+<!--<mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile
                   [colspan]="3"
                   [rowspan]="12"
                   [style.background]="grey">
-        <md-card class="bike-card">
-            <img md-card-image [src]="'data:image/png;base64,'+bikeDetails.image">
+        <mat-card class="bike-card">
+            <img mat-card-image [src]="'data:image/png;base64,'+bikeDetails.image">
 
-            <md-card-content>
+            <mat-card-content>
                 {{bikeDetails.name}}<br />
                 {{bikeDetails.color}}<br />
                 {{bikeDetails.size}}<br />
@@ -47,18 +266,17 @@
                 {{bikeDetails.weight}}"<br />
                 {{bikeDetails.weightUnitMeasureCode}}<br />
                 {{bikeDetails.listPrice}}
-            </md-card-content>
-            <md-card-actions>
-                <button md-raised-button color="accent">BUY</button>
-            </md-card-actions>
-        </md-card>
-    </md-grid-tile>
-</md-grid-list>-->
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="accent">BUY</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>-->
+<!--<mat-card class="bike-card">
+    <img mat-card-image [src]="'data:image/png;base64,'+bikeDetails.image">
 
-<!--<md-card class="bike-card">
-    <img md-card-image [src]="'data:image/png;base64,'+bikeDetails.image">
-
-    <md-card-content>
+    <mat-card-content>
         {{bikeDetails.name}}<br />
         {{bikeDetails.color}}<br />
         {{bikeDetails.size}}<br />
@@ -66,8 +284,8 @@
         {{bikeDetails.weight}}"<br />
         {{bikeDetails.weightUnitMeasureCode}}<br />
         {{bikeDetails.listPrice}}
-    </md-card-content>
-    <md-card-actions>
-        <button md-raised-button color="accent">BUY</button>
-    </md-card-actions>
-</md-card>-->
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="accent">BUY</button>
+    </mat-card-actions>
+</mat-card>-->
