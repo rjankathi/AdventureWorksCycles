@@ -7,6 +7,7 @@
 4. *Angualar Material* for layout and styling
 
 #### <a href="https://stackblitz.com/edit/adventureworkscycles-with-ng-material" target="_blank">App Demo</a>
+![ScreenShot](https://github.com/rjankathi/AdventureWorksCycles/blob/master/screenshots/AWC1.gif)
 
 ## To help you get started, I've also set upthe following:
   
